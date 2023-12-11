@@ -16,7 +16,7 @@ use App\Http\Controllers\AuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('hello');
 });
 Route::middleware(['auth.facebook'])->group(function () {
     Route::post('/send-message', [FacebookChatController::class, 'sendMessage'])->name('send-message');
