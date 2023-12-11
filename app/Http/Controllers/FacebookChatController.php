@@ -22,7 +22,7 @@ class FacebookChatController extends Controller
     public function __construct(HttpClient $httpClient)
     {
         $this->httpClient = $httpClient;
-        $this->pageAccessToken = env("FACEBOOK_ACCESS_TOKEN");
+        $this->pageAccessToken = "EAAKyVwqS4MMBO0F2fiFP2VZBxZBVN3pwrgSlAnDZCelXBLptokHaIjNQhEDVzgskKAjGhZCHMpJnMhD6e9yWDbldpM9B9ewfx6vZAvfjopGekZBGo4epAjKgw92Up9mQFLpFhsZAlvJjkdaro1alZBzoDHRSQDaSUCg3WgrmRuHOLXq53eSX2RWmWyFZCKur9uI1gA0pfFxGGEbegUkjhzLJy2PoZD";
     }
 
     public function getInbox()
