@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Controllers;
 
-use Closure;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
-class AuthenticateFacebookUser
+
+class WebhookController extends Controller
 {
-    public function handle($request, Closure $next)
+    public function handle(Request $request)
     {
-        if (!Auth::check()) {
-            return redirect('/login/facebook')->with('error', 'Bạn phải đăng nhập bằng Facebook để truy cập trang này.');
-        }
+        // Xử lý thông báo webhook ở đây
+        // $request chứa dữ liệu từ webhook
 
-        return $next($request);
+        // Phản hồi 200 OK để xác nhận webhook
+        return response('Webhook received', 200);
     }
 }
