@@ -19,4 +19,16 @@ class FacebookWebhookController extends Controller
         // Trả về một response 200 OK để báo hiệu cho Facebook rằng bạn đã nhận được sự kiện thành công
         return response('Event Received', 200);
     }
+    public function handleVerification(Request $request)
+{
+    $mode = $request->input('hub_mode');
+    $token = $request->input('hub_verify_token');
+    $challenge = $request->input('hub_challenge');
+
+    if ($mode === 'subscribe' && $token === 'your-verify-token') {
+        return response($challenge, 200);
+    }
+
+    return response('Invalid Verify Token', 403);
+}
 }
