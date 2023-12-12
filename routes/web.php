@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('hello');
 });
 
-Route::post('/facebook-webhook', [FacebookWebhookController::class, 'handleWebhook']);
+Route::post('/webhook', [FacebookWebhookController::class, 'handleWebhook']);
 
 Route::middleware(['auth.facebook'])->group(function () {
     Route::post('/send-message', [FacebookChatController::class, 'sendMessage'])->name('send-message');
