@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacebookChatController;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\WebhookController;
+use App\Http\Controllers\FacebookWebhookController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,8 @@ Route::get('/', function () {
     return view('hello');
 });
 
-Route::post('/webhook', [WebhookController::class, 'handle']);
+Route::post('/facebook-webhook', [FacebookWebhookController::class, 'handleWebhook']);
+
 Route::middleware(['auth.facebook'])->group(function () {
     Route::post('/send-message', [FacebookChatController::class, 'sendMessage'])->name('send-message');
     Route::get('/get-inbox', [FacebookChatController::class, 'getInbox'])->name('get-inbox');
