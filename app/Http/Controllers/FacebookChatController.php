@@ -22,7 +22,7 @@ class FacebookChatController extends Controller
     public function __construct(HttpClient $httpClient)
     {
         $this->httpClient = $httpClient;
-        $this->pageAccessToken = "EAAKyVwqS4MMBO0DGpppQEUYeNwkII6HhePWed8g3QLjqZC97rsrLWX2ZBbh3djlpnp7Juq3YBO5ifE0qI7lr5ZBCHSH7Mw2dM6sLw8TbMZAXQXiH1SHcy7f329ZC0ZB8Br7kNSob66cO9TqeD3BAZAxIsv5GcdxiHer32iNbEwZA2P9xVUSBYtB8ZCL9RhauYTXv0WegYKRBZArlzpR9nbz1fmkZC4ZD";
+        $this->pageAccessToken = "EAAKyVwqS4MMBO4SuhBjQSFcoGppcMxGS9ihBOZBlSvznrnLuGzDE6MOCfmbBTABk2UhQeP8tesXZAlfeTyZBCbUez1C1JYmRNd0vBeq3jiZBAI0na9vH9NRTet4kLwVGYxOD0h6N3wLchg101Tu5jj0rWNTGwLUBxZAmBhyZBKTfZB96hPZCXZBTgsm7a3AA0u6pemtWE74QZBOO9GlIJesFmZAahAZD ";
     }
 
     public function getInbox()
@@ -30,7 +30,7 @@ class FacebookChatController extends Controller
     //     if (!Auth::check()) {
     //     return redirect('/login/facebook')->with('error', 'Bạn cần đăng nhập bằng Facebook để truy cập.');
     // }
-        $pageAccessToken = env("FACEBOOK_ACCESS_TOKEN");
+        $pageAccessToken = $this->pageAccessToken;
         $pageId = $this->pageId;
         $apiUrl = "https://graph.facebook.com/{$this->apiVersion}/{$pageId}/conversations";
 
