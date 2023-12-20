@@ -9,6 +9,7 @@ use Illuminate\Http\Client\Factory as HttpClient;
 use Illuminate\Support\Facades\Http;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class FacebookChatController extends Controller
 {
@@ -22,14 +23,14 @@ class FacebookChatController extends Controller
     public function __construct(HttpClient $httpClient)
     {
         $this->httpClient = $httpClient;
-        $this->pageAccessToken = "EAAKyVwqS4MMBO4SuhBjQSFcoGppcMxGS9ihBOZBlSvznrnLuGzDE6MOCfmbBTABk2UhQeP8tesXZAlfeTyZBCbUez1C1JYmRNd0vBeq3jiZBAI0na9vH9NRTet4kLwVGYxOD0h6N3wLchg101Tu5jj0rWNTGwLUBxZAmBhyZBKTfZB96hPZCXZBTgsm7a3AA0u6pemtWE74QZBOO9GlIJesFmZAahAZD ";
+        $this->pageAccessToken = "EAAKyVwqS4MMBO2RBsJTTGbiqOyI0BifBg8vZAqU0FA8ZBJux903wVzVs60mbRw1ILTZA0h9xZB6o2uF3ItyFctteRG5DTiuUqXgLSgErHFL2zC64FlgcQGsfVaxk3yLpnU4OtNF1fLo4TJKckGzHKLCKF4y8MFW7ZBivV9D7ESaIMHKhiE0Ig2zUxTsZAoLECAYRtkSLTVssg0ZCJoEkDx1QyZBi ";
     }
 
     public function getInbox()
     { 
-    //     if (!Auth::check()) {
-    //     return redirect('/login/facebook')->with('error', 'Bạn cần đăng nhập bằng Facebook để truy cập.');
-    // }
+        if (!Auth::check()) {
+        return redirect('/login/facebook')->with('error', 'Bạn cần đăng nhập bằng Facebook để truy cập.');
+     }
         $pageAccessToken = $this->pageAccessToken;
         $pageId = $this->pageId;
         $apiUrl = "https://graph.facebook.com/{$this->apiVersion}/{$pageId}/conversations";
@@ -94,4 +95,5 @@ class FacebookChatController extends Controller
         }   
 
     }
+
 }
