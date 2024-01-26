@@ -9,9 +9,11 @@
         "guzzlehttp/guzzle": "^7.8",
         "intervention/image": "^2.7",
         "laravel/framework": "^10.10",
+        "laravel/jetstream": "^4.2",
         "laravel/sanctum": "^3.3",
         "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.0",
         "predis/predis": "^2.2"
     },
     "require-dev": {

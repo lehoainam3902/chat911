@@ -26,7 +26,7 @@ class FacebookChatController extends Controller
         $this->pageAccessToken = "EAAKyVwqS4MMBO2RBsJTTGbiqOyI0BifBg8vZAqU0FA8ZBJux903wVzVs60mbRw1ILTZA0h9xZB6o2uF3ItyFctteRG5DTiuUqXgLSgErHFL2zC64FlgcQGsfVaxk3yLpnU4OtNF1fLo4TJKckGzHKLCKF4y8MFW7ZBivV9D7ESaIMHKhiE0Ig2zUxTsZAoLECAYRtkSLTVssg0ZCJoEkDx1QyZBi ";
     }
 
-    public function getInbox()
+    public function     getInbox()
     { 
         if (!Auth::check()) {
         return redirect('/login/facebook')->with('error', 'Bạn cần đăng nhập bằng Facebook để truy cập.');
